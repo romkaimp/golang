@@ -3,3 +3,5 @@
 secrets.txt
 .env
 proxies.txt
+/parser/.env
+/parser/proxies.txt
