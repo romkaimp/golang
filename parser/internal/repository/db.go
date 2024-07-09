@@ -8,10 +8,10 @@ import (
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-	model "steamtrade.shop/parser/pkg"
+	_ "steamtrade.shop/parser/pkg"
 )
 
-func Conn() {
+func Conn() *gorm.DB {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file")
@@ -32,7 +32,7 @@ func Conn() {
 	if err != nil {
 		defer panic("failed to connect database")
 	}
-
+	return db
 	// Миграция схемы
-	db.AutoMigrate(&model.Product{}, &model.ProductPrice{})
+	//db.AutoMigrate(&model.Product{}, &model.ProductPrice{})
 }
